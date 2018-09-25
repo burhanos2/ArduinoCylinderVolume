@@ -10,13 +10,13 @@ float calculateVolume(float diameter, float height)
 //diameter check, goes into height check
 float checkDiameter()
 {
- // diameter = 0;
+  diameter = 0;
   
-  Serial.println("Hello, what is the diameter of the cylinder?");
+  Serial.println("Hello, what is the diameter of the cilinder?");
 while (Serial.available() == 0)
 {}
   diameter = Serial.parseFloat();
-  if(isDigit(diameter))
+  if(diameter == 0)
   { Serial.println("Please input a number");
   delay(1500);
   checkDiameter(); }
@@ -26,13 +26,13 @@ while (Serial.available() == 0)
 // height check
 float checkHeight()
 {
-  // height = 0;
+   height = 0;
    
-    Serial.println("and what is the height of the cylinder?");
+    Serial.println("and what is the height of the cilinder?");
   while (Serial.available() == 0)
 {}
   height = Serial.parseFloat();
-  if(isDigit(height))
+  if(height == 0)
   {
    Serial.println("Please input a number");
   delay(1500); 
@@ -44,7 +44,7 @@ void setup() {
 Serial.begin(9600);
 
 checkDiameter();
- Serial.print("The volume of this cylinder is: " );
+ Serial.print("The volume of this cilinder is: " );
  Serial.println(calculateVolume(diameter, height));
 }
 
